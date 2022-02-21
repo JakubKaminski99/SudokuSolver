@@ -46,12 +46,6 @@ def validation(board, number, row, col, case):
     for y in range(len(board[0])):
         if board[row][y] == number:
             return False 
-    # if case == 1:
-    #     for i in range(3):
-    #         for j in range(3):
-    #             if board[3 * (row // 3) + i][3 * (col // 3) + j] == number:
-    #                 return False
-    # elif case == 2:
     for i in range(4-case):
         for j in range(3):
             if board[(4-case) * (row // (4-case)) + i][3 * (col // 3) + j] == number:
@@ -76,8 +70,6 @@ def solver(board, case):
 if __name__ == '__main__':
     while True:
         boardSize = input("Type 1 for 9x9 board, type 2 for 6x6 board ")
-        # boardname = "sudoku{}".format(boardSize)
-        # print(boardname)
         if boardSize == "1":
             solver(sudoku1, int(boardSize))
             for line in sudoku1:
